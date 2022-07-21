@@ -1,13 +1,23 @@
+import styles from './FriendList.module.css'
 
+ const FriendList = ({friends}) =>{
+    const friendListClasses = [styles.friendList]
+    const itemClasses = [styles.item];
+    const statusStylesOnline = [styles.statusOnline];
+    const statusStylesOffline = [styles.statusOffline];
 
-export default function FriendList({friends}){
-    
     return(
-        <ul className="friend-list">
+        <ul className ={friendListClasses.join(' ')}>
 
             {friends?.map(friend =>(
-                <li className="item" key ={friend.id}>
-                  <span className="status" width = '5px' height = '5px'></span>
+                <li className= {itemClasses.join(' ')} key ={friend.id}>
+
+                  {friend.isOnline === true ? (
+                  <span className= {statusStylesOnline.join(' ')}> </span>
+                  ) : (
+                  <span className= {statusStylesOffline.join(' ')}> </span>)}
+
+                  
                   <img className="avatar" src={friend.avatar} alt={friend.name} width="48" />
                   <p className="name">{friend.name}</p>
               </li>
@@ -16,3 +26,4 @@ export default function FriendList({friends}){
         </ul>
     )
 }
+export  {FriendList};

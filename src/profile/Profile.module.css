@@ -1,0 +1,29 @@
+.profile{
+    text-align: center;
+    width: 250px;
+    height: 350px;
+    margin: auto;
+
+    border-radius: 20px;
+    background-color: teal;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-top: 20px;
+
+    background-color: black;
+}
+
+.stats{
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.statsItem{
+    width: 70px;
+    height: 70px;
+    display: grid;
+}
