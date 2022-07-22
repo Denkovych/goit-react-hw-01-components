@@ -1,14 +1,15 @@
 import PropTypes from "prop-types";
 import styles from './Statistics.module.css'
 
-const Statistics = ({stats}) => {
+const Statistics = ({title, stats}) => {
   const statisticsStyles = [styles.statistics];
   const statListStyles = [styles.statList];
   const itemStyles = [styles.item]
     return(
         <section className={statisticsStyles.join(' ')}>
-  <h2 className="title">Upload stats</h2>
-      
+          {title && (
+          <h2 className="title">Upload stats</h2>)}
+  
   <ul className={statListStyles.join(' ')}>
       {stats?.map(stat =>(
     <li className= {itemStyles.join('')} key = {stat.id}>
@@ -22,7 +23,11 @@ const Statistics = ({stats}) => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array
+  stats: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    label: PropTypes.string,
+    percentage: PropTypes.number
+  }))
 }
 
 
